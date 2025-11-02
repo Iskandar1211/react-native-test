@@ -7,16 +7,14 @@
 
 import { StatusBar } from 'react-native';
 
-import { AnimationButton } from './components/AnimationButton';
+import Navigation from './navigation/Navigation';
 import Providers from './providers/Providers';
-import WorkingByRestApi from './components/WorkingByRestApi';
 
 function App() {
   return (
     <Providers>
       <StatusBar />
-      <AnimationButton />
-      <WorkingByRestApi />
+      <Navigation/>
     </Providers>
   );
 }

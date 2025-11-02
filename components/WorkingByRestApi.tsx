@@ -1,3 +1,5 @@
+// Напиши компонент, который при монтировании делает запрос к какому-нибудь публичному API (например, берёт случайную цитату)
+// и отображает её на экране.
 import { API_URL } from '@env';
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
@@ -11,6 +13,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { IProduct } from 'types/product';
+import Routes from './Routes';
 
 const WorkingByRestApi = () => {
   const query = useQuery({
@@ -63,11 +66,11 @@ const WorkingByRestApi = () => {
   if (query.isError) {
     return (
       <View style={styles.centerContainer}>
-        <Text style={styles.errorText}>
-          Ошибка загрузки продуктов
-        </Text>
+        <Text style={styles.errorText}>Ошибка загрузки продуктов</Text>
         <Text style={styles.errorSubText}>
-          {query.error instanceof Error ? query.error.message : 'Неизвестная ошибка'}
+          {query.error instanceof Error
+            ? query.error.message
+            : 'Неизвестная ошибка'}
         </Text>
       </View>
     );
@@ -75,11 +78,12 @@ const WorkingByRestApi = () => {
 
   return (
     <View style={styles.container}>
+      <Routes />
       <Text style={styles.header}>Товары</Text>
       <FlatList
         data={products}
         renderItem={renderProduct}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={item => item.id.toString()}
         numColumns={2}
         columnWrapperStyle={styles.row}
         contentContainerStyle={styles.listContent}
@@ -92,7 +96,7 @@ const WorkingByRestApi = () => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#f5f5f5',
-    maxHeight:400,
+    maxHeight: 400,
     paddingTop: 20,
   },
   header: {
