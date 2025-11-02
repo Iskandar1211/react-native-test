@@ -17,6 +17,8 @@ import { IProduct } from 'types/product';
 
 
 const ProductsScreen = () => {
+  console.log("API_URL",API_URL);
+  
   const query = useQuery({
     queryKey: ['products'],
     queryFn: async () => {
@@ -32,6 +34,7 @@ const ProductsScreen = () => {
   });
 
   const products: IProduct[] = query.data || [];
+console.log("products",products);
 
   const renderProduct = ({ item }: { item: IProduct }) => (
     <TouchableOpacity style={styles.productCard} activeOpacity={0.8}>

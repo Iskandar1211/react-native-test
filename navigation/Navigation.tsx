@@ -1,3 +1,4 @@
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import React from 'react';
@@ -11,9 +12,11 @@ export type RootStackParamList = {
 
 const Navigation = () => {
   return (
-    <Stack.Navigator initialRouteName="Products">
-      <Stack.Screen name="Products" component={ProductsScreen} />
-    </Stack.Navigator>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Products">
+        <Stack.Screen name="Products" component={ProductsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
