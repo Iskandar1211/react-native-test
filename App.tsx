@@ -6,15 +6,18 @@
  */
 
 import { StatusBar } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 import { AnimationButton } from './components/AnimationButton';
+import Providers from './providers/Providers';
+import WorkingByRestApi from './components/WorkingByRestApi';
 
 function App() {
   return (
-    <SafeAreaProvider>
+    <Providers>
       <StatusBar />
       <AnimationButton />
-    </SafeAreaProvider>
+      <WorkingByRestApi />
+    </Providers>
   );
 }
 
