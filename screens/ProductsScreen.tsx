@@ -2,6 +2,7 @@
 // и отображает её на экране.
 import { API_URL } from '@env';
 import { useQuery } from '@tanstack/react-query';
+import Routes from 'components/Routes';
 import React from 'react';
 import {
   View,
@@ -13,9 +14,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { IProduct } from 'types/product';
-import Routes from './Routes';
 
-const WorkingByRestApi = () => {
+
+const ProductsScreen = () => {
   const query = useQuery({
     queryKey: ['products'],
     queryFn: async () => {
@@ -188,4 +189,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WorkingByRestApi;
+export default ProductsScreen;

@@ -3,7 +3,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@env": ["types/env.d.ts"]
+      "@env": ["types/env.d.ts"],
+      "screens/*": ["screens/*"],
+      "components/*": ["components/*"],
+      "types/*": ["types/*"],
+      "navigation/*": ["navigation/*"],
+      "providers/*": ["providers/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "types/**/*.d.ts"],

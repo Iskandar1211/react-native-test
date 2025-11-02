@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import WorkingByRestApi from '../components/WorkingByRestApi';
+
 import React from 'react';
+import ProductsScreen from 'screens/ProductsScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -11,7 +12,7 @@ export type RootStackParamList = {
 const Navigation = () => {
   return (
     <Stack.Navigator initialRouteName="Products">
-      <Stack.Screen name="Products" component={WorkingByRestApi} />
+      <Stack.Screen name="Products" component={ProductsScreen} />
     </Stack.Navigator>
   );
 };
